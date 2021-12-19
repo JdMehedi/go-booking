@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Category List</title>
+</head>
+<body class="ml-3">
+  <div class="p-3">
+    <a class="bg-green-600" href="/categories/create">Create</a>
+    <a class="bg-yellow-600" href="/books/create">Add Book information</a>
+  </div>
+  <form action="/categories/search" method="post">
+    <label for="">Search Category</label>
+    <br>
+    <input class="bg-green-100 border border-yellow-400" type="text" name="search" value=""/>
+    <br>
+    <br>
+    <button class="bg-green-600" type="submit"> Search</button>
+  </form>
+  <br>
+  <table>
+      {{ range .Category}}
+     <td> <img class="w-10 h-6" src="/asset/{{.Image}}" alt="jsc"></td>
+      <td>
+        {{.Name}}
+       
+        <a class="bg-yellow-500" href="/categories/{{.ID}}/edit">Edit</a>
+        <a class="bg-red-500" href="/categories/{{.ID}}/delete">Delete</a>
+      </td>
+      {{ end }}
+  </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+</head>
+<body>
+    <form method="post" action="/books/{{.Book.ID}}/update">
+
+        <label>Book:</label>
+        <br>
+        <input type="hidden" value="{{.Book.Category_id}}" id="Cat_ID"/>
+        <input type="text" value="{{.Book.Name}}" name="Name"/>
+        <br><br>
+        <select name="Category_id" id="Category_id">
+            {{range.Category}}
+            <option value="{{.ID}}">{{.Name}}</option>
+            {{end}}
+        </select>
+        <br>
+        <p>{{.Errors.Name}}</p>
+        <br>
+        <button type="submit">Update Book </button>
+        </form>
+
+     
+</body>
+<script>
+    var select = document.getElementById('Category_id');
+    var catID = document.getElementById('Cat_ID').value;
+    var option;
+
+    for (var i=0; i<select.options.length; i++) {
+        option = select.options[i];
+
+        if (option.value == catID) {
+            option.setAttribute('selected', true);
+        } 
+    }
+</script>
+</html>

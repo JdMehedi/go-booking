@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Book List</title>
+</head>
+<body>
+  <div class="p-3">
+    <a class="bg-yellow-600" href="/books/create">Add Book information</a>
+    <a class="bg-green-600" href="/bookings">Reseve Details</a>
+    <a class="bg-green-300" href="/categories/create">Add Category</a>
+    <a class="bg-green-300" href="/logout">Log out</a>
+  </div>
+  <div class="pl-2">
+    <form action="/books/search" method="get">
+      <label for="">Search Book</label>
+      <br>
+      <input class="bg-green-100 border border-yellow-400" type="text" name="search" value=""/>
+      <br>
+      <button class="bg-green-600" type="submit"> Search</button>
+    </form>
+  </div>
+  <div class="col-3">
+    <select class="ml-2 p-2" id="getData" aria-label="Default select example">
+        <option value="" selected>Category wise Book details </option>
+        {{ range $value := .Category}}
+        <option value="{{$value.Name}}" >{{$value.Name}}</option>
+        {{end}}
+    </select>
+</div>
+  <table id="myTable">
+    <thead>
+      <tr>
+        <td class="p-5">Name</td>
+        <td class="p-5">Category Name</td>
+        <td class="p-5">Action</td>
+      </tr>
+
+    </thead>
+    <tbody>
+     
+      {{ range .Book}}
+      <tr id="myTR">
+        
+        <td class="p-3"> {{.Name}}</td>
+        <td class="p-3">{{.Category_Name}}</td>
+        <td>
+       
+          <a class="bg-yellow-500" href="/books/{{.ID}}/edit">Edit</a>
+          <a class="bg-red-500" href="/books/{{.ID}}/delete">Delete</a>
+       
+           {{if .Status}}
+           <a class="bg-green-500">
+           Reseved
+           {{else}}
+           <a class="bg-green-500" href="/booking/{{.ID}}/create">
+           Reseve Now
+           {{end}}
+          </a>
+          {{if .Status}}
+          <a class="bg-red-500 ml-2 px-3" href="/booking/{{.ID}}/avilable"> 
+          End
+        </a>
+        {{end}}
+        </td>
+       
+    </tr>
+    {{ end }}
+
+    </tbody>
+  </table>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#getData").on("change", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable #myTR").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        });
+    });
+</script>
+</body>
+</html>

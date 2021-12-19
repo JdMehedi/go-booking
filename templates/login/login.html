@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Category</title>
+</head>
+<body>
+<p>{{.Messages}}</p>
+    <form action="/login/check" method="Post">
+        <label>Login:</label>
+        <br>
+        <input type="text" name="UserName"/>
+        <br>
+        <p>{{.Errors.UserName}}</p>
+        
+        <input type="password" name="Password"/>
+        <br>
+        <p>{{.Errors.Password}}</p>
+        <button type="submit">Login</button>
+    </form>  
+
+</body>
+</html>

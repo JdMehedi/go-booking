@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Book List</title>
+</head>
+<body>
+  <div class="p-3">
+    <a class="bg-green-600" href="/">Back</a>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="p-5">Book Name</th>
+        <th class="p-5">Start Time</th>
+        <th class="p-5">End Time</th>
+      </tr>
+
+    </thead>
+    <tbody>
+     
+      {{ range .Booking}}
+      <tr>
+        
+        <td class="p-3"> {{.Book_name}}</td>
+        <td  class="p-3">
+         {{.S_time}}
+        </td>
+        <td  class="p-3">
+         {{.E_time}}
+        </td>
+       
+    </tr>
+    {{ end }}
+
+    </tbody>
+  </table>
+</body>
+</html>

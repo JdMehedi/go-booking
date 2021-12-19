@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Category</title>
+</head>
+<body>
+
+    <div class="p-3">
+        <a class="bg-green-600" href="/">Index</a>
+      </div>
+
+    <form class="p-3" action="/books/store" method="Post">
+        <label>Book:</label>
+        <br>
+        <input class="border border-yellow-300" type="text" name="Name" value=""/>
+        <br>
+        <br>
+        <select name="Category_id" id="Category_id">
+            <option value="">Select category</option>
+            {{range.Category}}
+            <option value="{{.ID}}">{{.Name}}</option>
+            {{end}}
+        </select>
+        
+        <p>{{.Errors.Name}}</p>
+        <br>
+       
+        <button class="bg-green-500" type="submit">Create Book </button>
+    </form>    
+</body>
+</html>

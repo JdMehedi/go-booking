@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Category</title>
+</head>
+<body>
+
+    <div class="p-3">
+        <a class="bg-green-600" href="/categories">Index</a>
+      </div>
+
+    <form action="/categories/store" method="Post" enctype="multipart/form-data">
+        <label>Category:</label>
+        <br>
+        <input type="text" name="Name" value=""/>
+        <br>
+        <p>{{.Errors.Name}}</p>
+        
+        <input type="file" name="Image" value="" />
+        <br>
+        
+      
+       
+        <button type="submit">Create Category </button>
+    </form>    
+</body>
+</html>

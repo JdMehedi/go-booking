@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+</head>
+<body>
+    <form method="post" action="/categories/{{.Category.ID}}/update">
+
+        <label>Category:</label>
+        <br>
+        <input type="text" value="{{.Category.Name}}" name="Name"/>
+        <br>
+        <p>{{.Errors.Name}}</p>
+        <br>
+        <button type="submit">Update Category </button>
+        </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <form action="/signUp/register" method="Post">
+        <label>Login:</label>
+        <br>
+        <label>First Name:</label>
+        <br>
+        <input type="text" name="FirstName" value="{{.SignUpForm.FirstName}}"/>
+        <br>
+        <p>{{.Errors.FirstName}}</p>
+        <label>Last Name:</label>
+        <br>
+        <input type="text" name="LastName" value="{{.SignUpForm.LastName}}"/>
+        <br>
+        <p>{{.Errors.LastName}}</p>
+        <label>User Name:</label>
+        <br>
+        <input type="text" name="UserName" value="{{.SignUpForm.UserName}}"/>
+        <br>
+        <p>{{.Errors.UserName}}</p>
+       <label for="">Email:</label>
+        <br>
+        <input type="email" name="Email" value="{{.SignUpForm.Email}}"/>
+        <br>
+        <p>{{.Errors.Email}}</p>
+        <br>
+        <label>User Password:</label>
+        <br>
+        <input type="password" name="Password" value="{{.SignUpForm.Password}}"/>
+        <br>
+        <p>{{.Errors.Password}}</p>
+        <br>
+        <label>Password:</label>
+        <br>
+        <input type="password" name="ConfirmPassword"/>
+        <br>
+        <p>{{.Errors.ConfirmPassword}}</p>
+        <br>
+        <button type="submit">Login</button>
+    </form>  
+      
+</body>
+</html>
